@@ -104,12 +104,12 @@
             animation: floatText 3s ease-in-out infinite;
         }
 
-        /* --- NUEVO ESTILO: CAJA DE VIDRIO --- */
+        /* --- CAJA DE VIDRIO MEJORADA --- */
         .glass-features {
-            background: rgba(255, 255, 255, 0.05); /* Transparente */
-            backdrop-filter: blur(12px); /* Efecto vidrio borroso */
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+            border: 1px solid rgba(255, 255, 255, 0.1);
             
             /* Bordes laterales neón */
             border-left: 3px solid var(--primary-pink); 
@@ -120,16 +120,14 @@
             margin-bottom: 40px;
             display: flex;
             flex-direction: column;
-            gap: 15px; /* Espacio entre frases */
+            gap: 15px;
             max-width: 500px;
             width: 90%;
-            
-            /* Sombra suave */
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
             
-            /* Animación de entrada */
+            /* Animación diferente a la del título */
             opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.5s; /* Aparece después del título */
+            animation: slideInUp 0.8s ease-out forwards 0.5s; 
         }
 
         .feature-row {
@@ -137,10 +135,10 @@
             align-items: center;
             gap: 15px;
             font-size: 1.1rem;
-            color: #eee;
+            color: #fff; /* Texto blanco puro */
             text-align: left;
             padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.05); /* Línea divisoria muy sutil */
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         
         .feature-row:last-child {
@@ -152,6 +150,8 @@
             font-size: 1.2rem;
             width: 25px;
             text-align: center;
+            color: #fff; /* Iconos Blancos */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Brillo Blanco Neón */
         }
         /* ------------------------------------- */
 
@@ -165,8 +165,9 @@
             50% { transform: translateY(-10px) rotate(2deg); }
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
+        /* Nueva animación suave de deslizamiento hacia arriba */
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -271,18 +272,23 @@
         <div class="glass-features">
             
             <div class="feature-row">
-                <i class="fas fa-star" style="color: var(--primary-pink);"></i>
+                <i class="fas fa-star"></i>
                 <span>Edición Original.</span>
             </div>
             
             <div class="feature-row">
-                <i class="fas fa-ruler-vertical" style="color: var(--primary-purple);"></i>
+                <i class="fas fa-ruler-vertical"></i>
                 <span>30CM de pura personalidad.</span>
             </div>
             
             <div class="feature-row">
-                <i class="fas fa-gift" style="color: var(--primary-pink);"></i>
+                <i class="fas fa-gift"></i>
                 <span>El regalo perfecto, ahora en El Salvador.</span>
+            </div>
+
+            <div class="feature-row">
+                <i class="fas fa-truck-fast"></i>
+                <span>Envíos a todo El Salvador.</span>
             </div>
 
         </div>

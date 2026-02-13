@@ -29,7 +29,7 @@
             background-color: var(--dark-bg);
             color: var(--text-light);
             overflow-x: hidden;
-            perspective: 1000px;
+            /* Eliminamos perspective porque ya no haremos 3D mouse tracking */
         }
 
         /* Fondo Animado */
@@ -97,7 +97,6 @@
             animation: magicPulse 3s infinite alternate;
         }
 
-        /* CORRECCIÓN AQUÍ: Se hizo más específico el selector para que solo afecte al título */
         .hero h1 span { 
             color: var(--primary-pink);
             display: inline-block;
@@ -105,14 +104,13 @@
             animation: floatText 3s ease-in-out infinite;
         }
 
-        /* --- CAJA DE VIDRIO CORREGIDA --- */
+        /* --- CAJA DE VIDRIO --- */
         .glass-features {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             
-            /* CORRECCIÓN: Bordes laterales vuelven a ser rosa y morado */
             border-left: 3px solid var(--primary-pink); 
             border-right: 3px solid var(--primary-purple);
             
@@ -125,8 +123,6 @@
             max-width: 500px;
             width: 90%;
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            
-            /* Sin animación (Estático) */
             opacity: 1; 
             animation: none;
         }
@@ -136,7 +132,6 @@
             align-items: center;
             gap: 15px;
             font-size: 1.1rem;
-            /* Texto Blanco Neón Estático */
             color: #fff; 
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
             text-align: left;
@@ -153,11 +148,9 @@
             font-size: 1.2rem;
             width: 25px;
             text-align: center;
-            /* Iconos Blancos Neón Estáticos */
             color: #fff; 
             text-shadow: 0 0 15px rgba(255, 255, 255, 1); 
         }
-        /* ------------------------------------- */
 
         @keyframes magicPulse {
             0% { transform: scale(1); filter: brightness(100%); }
@@ -185,35 +178,55 @@
             transform: scale(1.05);
         }
 
-        /* Productos 3D */
+        /* Productos */
         .products-section { padding: 50px 5%; }
         .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; font-family: 'Montserrat', sans-serif; }
 
         .cards-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 50px; }
 
+        /* NUEVA ANIMACIÓN DE FLOTE SUAVE PARA LAS TARJETAS */
+        @keyframes subtleFloat {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
         .card {
             width: 350px; min-height: 500px; background: var(--card-bg);
             border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px; transform-style: preserve-3d;
-            transition: transform 0.1s ease; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            touch-action: manipulation; 
+            padding: 20px; 
+            /* Quitamos transform-style y transition de mouse 3d */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            
+            /* APLICAMOS LA NUEVA ANIMACIÓN */
+            animation: subtleFloat 4s ease-in-out infinite;
         }
 
-        .card-content { transform-style: preserve-3d; display: flex; flex-direction: column; align-items: center; height: 100%; pointer-events: none; }
+        /* Hacemos que la segunda tarjeta flote a destiempo para que se vea más orgánico */
+        .card:nth-child(2) {
+            animation-delay: 2s;
+        }
+
+        .card-content { 
+            display: flex; flex-direction: column; align-items: center; height: 100%; 
+            /* Quitamos pointer-events: none para asegurar que todo sea clickeable siempre */
+        }
 
         .plush-img {
             width: 100%; height: 300px; object-fit: cover; border-radius: 15px;
-            transform: translateZ(50px); box-shadow: 0 15px 35px rgba(0,0,0,0.5); transition: 0.3s;
-            pointer-events: auto;
+            /* Quitamos transform translateZ */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5); 
+            transition: 0.3s;
         }
 
-        .card:hover .plush-img { transform: translateZ(80px) scale(1.05); }
+        /* Efecto hover simple: zoom suave en la imagen */
+        .card:hover .plush-img { 
+            transform: scale(1.05); 
+        }
 
         .product-info { 
             margin-top: 30px; 
             text-align: center; 
-            transform: translateZ(30px); 
-            pointer-events: auto; 
             position: relative;
             z-index: 20;
         }
@@ -240,9 +253,7 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .card { width: 100%; margin-bottom: 30px; transform: none !important; }
-            .plush-img { transform: none !important; }
-            .product-info { transform: none !important; }
+            .card { width: 100%; margin-bottom: 30px; }
             .logo-container { flex-direction: column; gap: 5px; }
         }
     </style>
@@ -343,30 +354,5 @@
         <p style="font-size: 0.8rem; color: #555;">&copy; 2026 XPANDTOYS. Todos los derechos reservados.</p>
     </footer>
 
-    <script>
-        const cards = document.querySelectorAll('.card');
-        
-        if (window.matchMedia("(min-width: 768px)").matches) {
-            
-            cards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left; 
-                    const y = e.clientY - rect.top;  
-                    const xRotation = -((y - rect.height / 2) / 10); 
-                    const yRotation = ((x - rect.width / 2) / 10);   
-                    card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
-                });
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-                    card.style.transition = 'transform 0.5s ease';
-                });
-                card.addEventListener('mouseenter', () => {
-                    card.style.transition = 'none';
-                });
-            });
-
-        }
-    </script>
-</body>
+    </body>
 </html>

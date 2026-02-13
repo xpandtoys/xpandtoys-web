@@ -56,10 +56,10 @@
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 5%; 
-            backdrop-filter: blur(15px); /* Aumenté un poco el blur para que se vea mejor */
-            background: rgba(10, 10, 10, 0.3); /* Un poco de tinte oscuro para ayudar al blur */
+            backdrop-filter: blur(15px); 
+            background: rgba(10, 10, 10, 0.3); 
             position: sticky; top: 0; 
-            z-index: 500; /* CORREGIDO: Ahora es mayor que el botón (100) */
+            z-index: 500; 
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
@@ -100,7 +100,7 @@
             font-size: 1.1rem; text-transform: uppercase; border-radius: 50px;
             transition: 0.3s; box-shadow: 0 0 10px var(--primary-pink); 
             position: relative;
-            z-index: 100; /* Este se queda en 100, así que el header (500) le gana */
+            z-index: 100; 
         }
 
         .btn-neon:hover {
@@ -161,16 +161,6 @@
         .social-icons a { color: white; font-size: 2rem; margin: 0 15px; transition: 0.3s; cursor: pointer; }
         .social-icons a:hover { color: var(--primary-pink); transform: translateY(-5px); }
 
-        /* WhatsApp Flotante */
-        .float-wa {
-            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
-            background-color: #25d366; color: #FFF; border-radius: 50px;
-            text-align: center; font-size: 30px; box-shadow: 0px 0px 20px rgba(37, 211, 102, 0.6);
-            z-index: 1000; display: flex; align-items: center; justify-content: center;
-            text-decoration: none; transition: 0.3s;
-        }
-        .float-wa:hover { transform: scale(1.1); }
-
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .card { width: 100%; margin-bottom: 30px; transform: none !important; }
@@ -186,10 +176,6 @@
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
     </div>
-
-    <a href="https://wa.me/50371988538?text=Hola%20XPANDTOYS,%20quisiera%20pedir%20un%20peluche%20de%20Kuromi!" class="float-wa" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <header>
         <div class="logo-container">

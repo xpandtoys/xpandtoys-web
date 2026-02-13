@@ -109,11 +109,11 @@
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Borde general un poco más visible */
             
-            /* Bordes laterales neón */
-            border-left: 3px solid var(--primary-pink); 
-            border-right: 3px solid var(--primary-purple);
+            /* Bordes laterales AHORA BLANCOS */
+            border-left: 3px solid #ffffff; 
+            border-right: 3px solid #ffffff;
             
             padding: 25px;
             border-radius: 20px;
@@ -123,10 +123,12 @@
             gap: 15px;
             max-width: 500px;
             width: 90%;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            /* Sombra blanca suave para efecto neón */
+            box-shadow: 0 0 15px rgba(255,255,255,0.1), 0 10px 40px rgba(0,0,0,0.5);
             
-            /* Sin animación (Estático) */
+            /* Sin animación */
             opacity: 1; 
+            animation: none;
         }
 
         .feature-row {
@@ -134,11 +136,11 @@
             align-items: center;
             gap: 15px;
             font-size: 1.1rem;
-            color: #fff; /* Texto blanco puro */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Sutil resplandor blanco */
+            color: #fff; 
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Resplandor blanco */
             text-align: left;
             padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
         }
         
         .feature-row:last-child {
@@ -150,8 +152,8 @@
             font-size: 1.2rem;
             width: 25px;
             text-align: center;
-            color: #fff; /* Iconos Blancos */
-            text-shadow: 0 0 15px rgba(255, 255, 255, 1); /* Brillo Blanco Neón Intenso */
+            color: #fff; 
+            text-shadow: 0 0 15px rgba(255, 255, 255, 1); 
         }
         /* ------------------------------------- */
 

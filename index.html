@@ -92,7 +92,6 @@
             margin-bottom: 20px;
             position: relative;
             color: #fff;
-            /* Efecto de sombra 3D sutil */
             text-shadow: 
                 3px 3px 0px rgba(157, 0, 255, 0.4), 
                 -2px -2px 0px rgba(255, 0, 204, 0.4);
@@ -102,7 +101,6 @@
         .hero span { 
             color: var(--primary-pink);
             display: inline-block;
-            /* Efecto de brillo neón intenso */
             text-shadow: 0 0 10px var(--primary-pink), 0 0 20px var(--primary-pink);
             animation: floatText 3s ease-in-out infinite;
         }
@@ -188,16 +186,6 @@
         .social-icons a { color: white; font-size: 2rem; margin: 0 15px; transition: 0.3s; cursor: pointer; }
         .social-icons a:hover { color: var(--primary-pink); transform: translateY(-5px); }
 
-        /* WhatsApp Flotante */
-        .float-wa {
-            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
-            background-color: #25d366; color: #FFF; border-radius: 50px;
-            text-align: center; font-size: 30px; box-shadow: 0px 0px 20px rgba(37, 211, 102, 0.6);
-            z-index: 1000; display: flex; align-items: center; justify-content: center;
-            text-decoration: none; transition: 0.3s;
-        }
-        .float-wa:hover { transform: scale(1.1); }
-
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .card { width: 100%; margin-bottom: 30px; transform: none !important; }
@@ -213,10 +201,6 @@
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
     </div>
-
-    <a href="https://wa.me/50371988538?text=Hola%20XPANDTOYS,%20quisiera%20pedir%20un%20peluche%20de%20Kuromi!" class="float-wa" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <header>
         <div class="logo-container">

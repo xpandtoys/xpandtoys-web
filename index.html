@@ -21,6 +21,9 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: default; }
 
+        /* Cursor pointer normal para enlaces */
+        a, button, .btn-neon { cursor: pointer !important; }
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--dark-bg);
@@ -86,6 +89,203 @@
         .hero span { color: var(--primary-pink); }
         .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 40px; color: #ccc; }
 
+        /* Botón Neon */
+        .btn-neon {
+            display: inline-block; padding: 15px 40px;
+            background: transparent; border: 2px solid var(--primary-pink);
+            color: #fff; text-decoration: none; font-weight: bold;
+            font-size: 1.1rem; text-transform: uppercase; border-radius: 50px;
+            transition: 0.3s; box-shadow: 0 0 10px var(--primary-pink); 
+            position: relative;
+            z-index: 100; /* Z-index alto para asegurar clic */
+            /* En móvil quitamos translateZ para evitar bugs, en PC se añade por JS o herencia */
+        }
+
+        .btn-neon:hover {
+            background: var(--primary-pink); box-shadow: 0 0 30px var(--primary-pink);
+            transform: scale(1.05);
+        }
+
+        /* Productos 3D */
+        .products-section { padding: 50px 5%; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; font-family: 'Montserrat', sans-serif; }
+
+        .cards-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 50px; }
+
+        .card {
+            width: 350px; min-height: 500px; background: var(--card-bg);
+            border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px; transform-style: preserve-3d;
+            transition: transform 0.1s ease; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            /* Asegura que el contenido sea interactuable */
+            touch-action: manipulation; 
+        }
+
+        .card-content { transform-style: preserve-3d; display: flex; flex-direction: column; align-items: center; height: 100%; pointer-events: none; /* Dejamos pasar clicks a hijos con pointer-events auto */ }
+
+        .plush-img {
+            width: 100%; height: 300px; object-fit: cover; border-radius: 15px;
+            transform: translateZ(50px); box-shadow: 0 15px 35px rgba(0,0,0,0.5); transition: 0.3s;
+            pointer-events: auto;
+        }
+
+        .card:hover .plush-img { transform: translateZ(80px) scale(1.05); }
+
+        .product-info { 
+            margin-top: 30px; 
+            text-align: center; 
+            transform: translateZ(30px); 
+            pointer-events: auto; /* Reactivamos los clics aquí */
+            position: relative;
+            z-index: 20;
+        }
+        
+        .product-title { font-size: 1.8rem; margin-bottom: 10px; font-weight: 700; }
+        .purple-text { color: var(--primary-purple); text-shadow: 0 0 10px var(--primary-purple); }
+        .pink-text { color: var(--primary-pink); text-shadow: 0 0 10px var(--primary-pink); }
+        .specs { background: rgba(0,0,0,0.3); padding: 5px 15px; border-radius: 10px; margin: 10px 0; font-size: 0.9rem; display: inline-block; }
+
+        /* Banner Envíos */
+        .shipping-banner {
+            background: linear-gradient(90deg, var(--primary-purple), var(--primary-pink));
+            padding: 20px; margin-top: 80px; text-align: center;
+            font-size: 1.2rem; font-weight: bold;
+            display: flex; justify-content: center; align-items: center; gap: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 204, 0.3);
+        }
+
+        /* Footer */
+        footer { background: #000; padding: 40px 5%; margin-top: 50px; border-top: 1px solid #333; text-align: center; }
+        .social-icons { margin: 20px 0; }
+        .social-icons a { color: white; font-size: 2rem; margin: 0 15px; transition: 0.3s; cursor: pointer; }
+        .social-icons a:hover { color: var(--primary-pink); transform: translateY(-5px); }
+
+        /* WhatsApp Flotante */
+        .float-wa {
+            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
+            background-color: #25d366; color: #FFF; border-radius: 50px;
+            text-align: center; font-size: 30px; box-shadow: 0px 0px 20px rgba(37, 211, 102, 0.6);
+            z-index: 1000; display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: 0.3s;
+        }
+        .float-wa:hover { transform: scale(1.1); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .card { width: 100%; margin-bottom: 30px; transform: none !important; /* Desactiva 3D en móvil por seguridad */ }
+            .plush-img { transform: none !important; }
+            .product-info { transform: none !important; }
+            .logo-container { flex-direction: column; gap: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-animation">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <a href="https://wa.me/50371988538?text=Hola%20XPANDTOYS,%20quisiera%20pedir%20un%20peluche%20de%20Kuromi!" class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header>
+        <div class="logo-container">
+            <img src="1000430109.jpg" alt="XPANDTOYS Logo" class="logo-img">
+            <div class="brand-name">XPANDTOYS</div>
+        </div>
+        <nav>
+            <a href="https://wa.me/50371988538" class="btn-neon" style="font-size: 0.8rem; padding: 10px 20px;">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>La Actitud <br><span>Kuromi</span> Llegó</h1>
+        <p>Edición Original. 30CM de pura personalidad. <br>El regalo perfecto, ahora en El Salvador.</p>
+        <a href="https://wa.me/50371988538?text=Quiero%20pedir%20ahora!" class="btn-neon">¡PEDIR AHORA!</a>
+    </section>
+
+    <section class="products-section">
+        <h2 class="section-title">Elige tu Estilo</h2>
+        
+        <div class="cards-container">
+            
+            <div class="card">
+                <div class="card-content">
+                    <img src="1000430102.jpg" alt="Kuromi Morada" class="plush-img">
+                    <div class="product-info">
+                        <h3 class="product-title purple-text">Kuromi Purple</h3>
+                        <div class="specs">📏 30 CM | ✨ Edición Original</div>
+                        <p style="font-size: 0.9rem; margin: 15px 0;">La clásica traviesa. Detalles bordados de alta calidad y tacto suave premium.</p>
+                        <br>
+                        <a href="https://wa.me/50371988538?text=Me%20interesa%20la%20Kuromi%20MORADA" class="btn-neon" style="font-size: 0.9rem;">¡Pedir Ahora!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <img src="1000430089.jpg" alt="Kuromi Rosada" class="plush-img">
+                    <div class="product-info">
+                        <h3 class="product-title pink-text">Kuromi Pink</h3>
+                        <div class="specs">📏 30 CM | ✨ Edición Original</div>
+                        <p style="font-size: 0.9rem; margin: 15px 0;">Estilo y ternura. Acabado perfecto para coleccionistas y regalos especiales.</p>
+                        <br>
+                        <a href="https://wa.me/50371988538?text=Me%20interesa%20la%20Kuromi%20ROSADA" class="btn-neon" style="font-size: 0.9rem;">¡Pedir Ahora!</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="shipping-banner">
+        <i class="fas fa-truck-fast"></i>
+        <span>ENVÍOS A TODO EL SALVADOR 🇸🇻 HASTA LA PUERTA DE TU CASA</span>
+    </div>
+
+    <footer>
+        <div class="brand-name" style="font-size: 2rem;">XPANDTOYS</div>
+        <p style="margin-top: 10px; color: #888;">Llevando alegría a todo El Salvador.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/share/17xccmFYBK/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/xpandtoys?igsh=MWlsdzBqN2Mya3YxbQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/50371988538" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p style="font-size: 0.8rem; color: #555;">&copy; 2026 XPANDTOYS. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const cards = document.querySelectorAll('.card');
+        
+        // CORRECCIÓN CRÍTICA:
+        // Solo activamos el efecto 3D si la pantalla es mayor a 768px (PC/Laptops)
+        // Esto evita que en el celular el "tap" se confunda con "move"
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left; 
+                    const y = e.clientY - rect.top;  
+                    const xRotation = -((y - rect.height / 2) / 10); 
+                    const yRotation = ((x - rect.width / 2) / 10);   
+                    card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+                    card.style.transition = 'transform 0.5s ease';
+                });
+                card.addEventListener('mouseenter', () => {
+                    card.style.transition = 'none';
+                });
+            });
+
+        }
+    </script>
+</body>
+</html>
         /* Botón Neon */
         .btn-neon {
             display: inline-block; padding: 15px 40px;
@@ -256,4 +456,5 @@
         });
     </script>
 </body>
+
 </html>

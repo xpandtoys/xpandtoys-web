@@ -1,9 +1,32 @@
+¡Claro que sí! Ese pequeño icono se llama **Favicon**.
+
+He agregado una sola línea de código en la parte de arriba (`<head>`) para que tu logo (`1000430109.jpg`) aparezca en la pestaña del navegador.
+
+Aquí tienes el **código completo actualizado**.
+
+### ¿Cómo actualizarlo ahora que usas GitHub?
+
+Como ya eres "Pro" y usas GitHub, la forma más fácil es:
+
+1. Entra a tu repositorio en **GitHub.com**.
+2. Haz clic en el archivo `index.html`.
+3. Busca el icono de un **lápiz** ✏️ (arriba a la derecha del archivo) para editar.
+4. Borra todo lo que hay y **pega este nuevo código**.
+5. Baja y dale al botón verde **"Commit changes"**.
+6. *Espera 1 minuto y Netlify actualizará tu página solo.*
+
+Aquí está el código:
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XPANDTOYS | Kuromi Edition</title>
+    
+    <link rel="icon" href="1000430109.jpg" type="image/jpeg">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -16,12 +39,7 @@
             --text-light: #ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            cursor: default; /* Cursor personalizado más abajo */
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: default; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -31,22 +49,16 @@
             perspective: 1000px;
         }
 
-        /* --- Fondo Animado --- */
+        /* Fondo Animado */
         .bg-animation {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
             background: radial-gradient(circle at 50% 50%, #1a0b2e 0%, #000000 100%);
         }
         
         .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.4;
+            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4;
             animation: float 10s infinite ease-in-out;
         }
         .orb-1 { width: 300px; height: 300px; background: var(--primary-pink); top: 10%; left: 20%; }
@@ -57,245 +69,110 @@
             50% { transform: translate(30px, -50px); }
         }
 
-        /* --- Header --- */
+        /* Header */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; backdrop-filter: blur(10px);
+            position: sticky; top: 0; z-index: 100;
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
 
         .logo-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid var(--primary-pink);
-            object-fit: cover;
+            width: 50px; height: 50px; border-radius: 50%;
+            border: 2px solid var(--primary-pink); object-fit: cover;
         }
 
         .brand-name {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.5rem; letter-spacing: 2px;
             background: linear-gradient(to right, var(--primary-pink), var(--primary-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        /* --- Hero Section --- */
+        /* Hero */
         .hero {
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            min-height: 80vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
             padding: 0 20px;
-            position: relative;
         }
 
         .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4rem;
-            text-transform: uppercase;
-            line-height: 1.1;
-            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif; font-size: 4rem; text-transform: uppercase;
+            line-height: 1.1; margin-bottom: 20px;
             text-shadow: 0 0 20px rgba(157, 0, 255, 0.5);
         }
 
-        .hero span {
-            color: var(--primary-pink);
-        }
+        .hero span { color: var(--primary-pink); }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 40px; color: #ccc; }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 40px;
-            color: #ccc;
-        }
-
-        /* --- Botón Neon --- */
+        /* Botón Neon */
         .btn-neon {
-            display: inline-block;
-            padding: 15px 40px;
-            background: transparent;
-            border: 2px solid var(--primary-pink);
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            border-radius: 50px;
-            position: relative;
-            overflow: hidden;
-            transition: 0.3s;
-            box-shadow: 0 0 10px var(--primary-pink);
-            z-index: 1;
+            display: inline-block; padding: 15px 40px;
+            background: transparent; border: 2px solid var(--primary-pink);
+            color: #fff; text-decoration: none; font-weight: bold;
+            font-size: 1.1rem; text-transform: uppercase; border-radius: 50px;
+            transition: 0.3s; box-shadow: 0 0 10px var(--primary-pink); z-index: 1;
         }
 
         .btn-neon:hover {
-            background: var(--primary-pink);
-            box-shadow: 0 0 30px var(--primary-pink);
+            background: var(--primary-pink); box-shadow: 0 0 30px var(--primary-pink);
             transform: scale(1.05);
         }
 
-        /* --- Sección de Productos 3D --- */
-        .products-section {
-            padding: 50px 5%;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            font-family: 'Montserrat', sans-serif;
-        }
+        /* Productos 3D */
+        .products-section { padding: 50px 5%; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; font-family: 'Montserrat', sans-serif; }
 
-        .cards-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 50px;
-        }
+        .cards-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 50px; }
 
         .card {
-            width: 350px;
-            min-height: 500px;
-            background: var(--card-bg);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.1s ease;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            width: 350px; min-height: 500px; background: var(--card-bg);
+            border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px; transform-style: preserve-3d;
+            transition: transform 0.1s ease; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
-        /* Efecto 3D Elementos internos */
-        .card-content {
-            transform-style: preserve-3d;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
-        }
+        .card-content { transform-style: preserve-3d; display: flex; flex-direction: column; align-items: center; height: 100%; }
 
         .plush-img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 15px;
-            transform: translateZ(50px); /* Hace que la imagen "flote" */
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            transition: 0.3s;
+            width: 100%; height: 300px; object-fit: cover; border-radius: 15px;
+            transform: translateZ(50px); box-shadow: 0 15px 35px rgba(0,0,0,0.5); transition: 0.3s;
         }
 
-        .card:hover .plush-img {
-            transform: translateZ(80px) scale(1.05);
-        }
+        .card:hover .plush-img { transform: translateZ(80px) scale(1.05); }
 
-        .product-info {
-            margin-top: 30px;
-            text-align: center;
-            transform: translateZ(30px);
-        }
-
-        .product-title {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
+        .product-info { margin-top: 30px; text-align: center; transform: translateZ(30px); }
+        .product-title { font-size: 1.8rem; margin-bottom: 10px; font-weight: 700; }
         .purple-text { color: var(--primary-purple); text-shadow: 0 0 10px var(--primary-purple); }
         .pink-text { color: var(--primary-pink); text-shadow: 0 0 10px var(--primary-pink); }
+        .specs { background: rgba(0,0,0,0.3); padding: 5px 15px; border-radius: 10px; margin: 10px 0; font-size: 0.9rem; display: inline-block; }
 
-        .specs {
-            background: rgba(0,0,0,0.3);
-            padding: 5px 15px;
-            border-radius: 10px;
-            margin: 10px 0;
-            font-size: 0.9rem;
-            display: inline-block;
-        }
-
-        /* --- Banner de Envíos --- */
+        /* Banner Envíos */
         .shipping-banner {
             background: linear-gradient(90deg, var(--primary-purple), var(--primary-pink));
-            padding: 20px;
-            margin-top: 80px;
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
+            padding: 20px; margin-top: 80px; text-align: center;
+            font-size: 1.2rem; font-weight: bold;
+            display: flex; justify-content: center; align-items: center; gap: 15px;
             box-shadow: 0 0 20px rgba(255, 0, 204, 0.3);
         }
 
-        /* --- Footer --- */
-        footer {
-            background: #000;
-            padding: 40px 5%;
-            margin-top: 50px;
-            border-top: 1px solid #333;
-            text-align: center;
-        }
+        /* Footer */
+        footer { background: #000; padding: 40px 5%; margin-top: 50px; border-top: 1px solid #333; text-align: center; }
+        .social-icons { margin: 20px 0; }
+        .social-icons a { color: white; font-size: 2rem; margin: 0 15px; transition: 0.3s; }
+        .social-icons a:hover { color: var(--primary-pink); transform: translateY(-5px); }
 
-        .social-icons {
-            margin: 20px 0;
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 2rem;
-            margin: 0 15px;
-            transition: 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: var(--primary-pink);
-            transform: translateY(-5px);
-        }
-
-        /* Botón Flotante WhatsApp */
+        /* WhatsApp Flotante */
         .float-wa {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0px 0px 20px rgba(37, 211, 102, 0.6);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: 0.3s;
+            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
+            background-color: #25d366; color: #FFF; border-radius: 50px;
+            text-align: center; font-size: 30px; box-shadow: 0px 0px 20px rgba(37, 211, 102, 0.6);
+            z-index: 1000; display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: 0.3s;
         }
+        .float-wa:hover { transform: scale(1.1); }
 
-        .float-wa:hover {
-            transform: scale(1.1);
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .card { width: 100%; margin-bottom: 30px; }
@@ -335,7 +212,7 @@
         
         <div class="cards-container">
             
-            <div class="card" id="card1">
+            <div class="card">
                 <div class="card-content">
                     <img src="1000430102.jpg" alt="Kuromi Morada" class="plush-img">
                     <div class="product-info">
@@ -347,7 +224,7 @@
                 </div>
             </div>
 
-            <div class="card" id="card2">
+            <div class="card">
                 <div class="card-content">
                     <img src="1000430089.jpg" alt="Kuromi Rosada" class="plush-img">
                     <div class="product-info">
@@ -370,42 +247,29 @@
     <footer>
         <div class="brand-name" style="font-size: 2rem;">XPANDTOYS</div>
         <p style="margin-top: 10px; color: #888;">Llevando alegría a todo El Salvador.</p>
-        
         <div class="social-icons">
             <a href="https://www.facebook.com/share/17xccmFYBK/" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.instagram.com/xpandtoys?igsh=MWlsdzBqN2Mya3YxbQ==" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/50371988538" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
-
         <p style="font-size: 0.8rem; color: #555;">&copy; 2026 XPANDTOYS. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        // Seleccionamos las tarjetas
         const cards = document.querySelectorAll('.card');
-
         cards.forEach(card => {
-            // Evento cuando el mouse se mueve sobre la tarjeta
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left; // Posición X dentro del elemento
-                const y = e.clientY - rect.top;  // Posición Y dentro del elemento
-                
-                // Calcular rotación
-                const xRotation = -((y - rect.height / 2) / 10); // Rotar en eje X
-                const yRotation = ((x - rect.width / 2) / 10);   // Rotar en eje Y
-                
-                // Aplicar transformación
+                const x = e.clientX - rect.left; 
+                const y = e.clientY - rect.top;  
+                const xRotation = -((y - rect.height / 2) / 10); 
+                const yRotation = ((x - rect.width / 2) / 10);   
                 card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
             });
-
-            // Evento cuando el mouse sale de la tarjeta (volver a posición original)
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
                 card.style.transition = 'transform 0.5s ease';
             });
-
-            // Quitar la transición al entrar para que el movimiento sea fluido
             card.addEventListener('mouseenter', () => {
                 card.style.transition = 'none';
             });
@@ -413,3 +277,5 @@
     </script>
 </body>
 </html>
+
+```

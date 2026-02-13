@@ -83,7 +83,6 @@
             padding: 0 20px;
         }
 
-        /* ANIMACIÓN MÁGICA DE TEXTO */
         .hero h1 {
             font-family: 'Montserrat', sans-serif; 
             font-size: 4rem; 
@@ -105,6 +104,57 @@
             animation: floatText 3s ease-in-out infinite;
         }
 
+        /* --- NUEVO ESTILO: CAJA DE VIDRIO --- */
+        .glass-features {
+            background: rgba(255, 255, 255, 0.05); /* Transparente */
+            backdrop-filter: blur(12px); /* Efecto vidrio borroso */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+            
+            /* Bordes laterales neón */
+            border-left: 3px solid var(--primary-pink); 
+            border-right: 3px solid var(--primary-purple);
+            
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Espacio entre frases */
+            max-width: 500px;
+            width: 90%;
+            
+            /* Sombra suave */
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            
+            /* Animación de entrada */
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.5s; /* Aparece después del título */
+        }
+
+        .feature-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+            color: #eee;
+            text-align: left;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05); /* Línea divisoria muy sutil */
+        }
+        
+        .feature-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .feature-row i {
+            font-size: 1.2rem;
+            width: 25px;
+            text-align: center;
+        }
+        /* ------------------------------------- */
+
         @keyframes magicPulse {
             0% { transform: scale(1); filter: brightness(100%); }
             100% { transform: scale(1.02); filter: brightness(110%) drop-shadow(0 0 15px rgba(157, 0, 255, 0.6)); }
@@ -115,7 +165,10 @@
             50% { transform: translateY(-10px) rotate(2deg); }
         }
 
-        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 40px; color: #ccc; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         /* Botón Neon */
         .btn-neon {
@@ -215,7 +268,24 @@
     <section class="hero">
         <h1>La Actitud <br><span>Kuromi</span> Llegó</h1>
         
-        <p>Edición Original. 30CM de pura personalidad. <br>El regalo perfecto, ahora en El Salvador.</p>
+        <div class="glass-features">
+            
+            <div class="feature-row">
+                <i class="fas fa-star" style="color: var(--primary-pink);"></i>
+                <span>Edición Original.</span>
+            </div>
+            
+            <div class="feature-row">
+                <i class="fas fa-ruler-vertical" style="color: var(--primary-purple);"></i>
+                <span>30CM de pura personalidad.</span>
+            </div>
+            
+            <div class="feature-row">
+                <i class="fas fa-gift" style="color: var(--primary-pink);"></i>
+                <span>El regalo perfecto, ahora en El Salvador.</span>
+            </div>
+
+        </div>
         <a href="https://wa.me/50371988538?text=Quiero%20pedir%20ahora!" class="btn-neon">¡PEDIR AHORA!</a>
     </section>
 

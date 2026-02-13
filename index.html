@@ -125,9 +125,8 @@
             width: 90%;
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
             
-            /* Animación diferente a la del título */
-            opacity: 0;
-            animation: slideInUp 0.8s ease-out forwards 0.5s; 
+            /* Sin animación (Estático) */
+            opacity: 1; 
         }
 
         .feature-row {
@@ -136,6 +135,7 @@
             gap: 15px;
             font-size: 1.1rem;
             color: #fff; /* Texto blanco puro */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Sutil resplandor blanco */
             text-align: left;
             padding-bottom: 10px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -151,7 +151,7 @@
             width: 25px;
             text-align: center;
             color: #fff; /* Iconos Blancos */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Brillo Blanco Neón */
+            text-shadow: 0 0 15px rgba(255, 255, 255, 1); /* Brillo Blanco Neón Intenso */
         }
         /* ------------------------------------- */
 
@@ -163,12 +163,6 @@
         @keyframes floatText {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-10px) rotate(2deg); }
-        }
-
-        /* Nueva animación suave de deslizamiento hacia arriba */
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Botón Neon */

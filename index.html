@@ -103,13 +103,12 @@
             animation: floatText 3s ease-in-out infinite;
         }
 
-        /* ESTILO CORREGIDO PARA EL SUBTÍTULO (SIN NEÓN DE COLORES) */
+        /* ESTILO CORRECTO: BLANCO LIMPIO, SIN NEÓN DE COLORES */
         .hero-subtitle {
             font-family: 'Montserrat', sans-serif; 
             font-size: 1.8rem; 
             color: #fff; 
-            /* Sombra suave negra para legibilidad, sin colores neón */
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Sombra suave negra */
             margin-top: 20px; 
             letter-spacing: 1px; 
             font-weight: 700; 
@@ -257,10 +256,16 @@
 
         /* AJUSTES PARA CELULAR (RESPONSIVE) */
         @media (max-width: 768px) {
-            /* Título un poco más pequeño en celular */
+            
             .hero h1 { 
-                font-size: 2.2rem; 
-                margin-bottom: 30px; /* Separamos el título de la caja de vidrio */
+                /* 1. RESTAURAMOS EL TAMAÑO GRANDE */
+                font-size: 2.5rem; 
+                
+                /* 2. AGREGAMOS ESPACIO ARRIBA PARA BAJARLO DEL HEADER */
+                padding-top: 60px;
+                
+                line-height: 1.1;
+                margin-bottom: 20px; 
             }
             
             .hero-subtitle { 

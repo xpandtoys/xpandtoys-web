@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XPANDTOYS | ¡Tus Peluchitos Kuromi!</title>
+    <title>XPANDTOYS | Kuromi Edition</title>
     
     <link rel="icon" href="1000430109.jpg" type="image/jpeg">
 
@@ -101,6 +101,18 @@
             display: inline-block;
             text-shadow: 0 0 10px var(--primary-pink), 0 0 20px var(--primary-pink);
             animation: floatText 3s ease-in-out infinite;
+        }
+
+        /* ESTILO NUEVO PARA EL SUBTÍTULO */
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 1.8rem; /* Tamaño normal en PC */
+            color: #fff; 
+            text-shadow: 3px 3px 0px rgba(157, 0, 255, 0.4), -2px -2px 0px rgba(255, 0, 204, 0.4);
+            margin-top: 20px; 
+            letter-spacing: 1px; 
+            font-weight: 700; /* CAMBIO: 700 para igualar al título */
+            text-transform: uppercase;
         }
 
         /* --- CAJA DE VIDRIO --- */
@@ -242,8 +254,16 @@
         .social-icons a { color: white; font-size: 2rem; margin: 0 15px; transition: 0.3s; cursor: pointer; }
         .social-icons a:hover { color: var(--primary-pink); transform: translateY(-5px); }
 
+        /* AJUSTES PARA CELULAR (RESPONSIVE) */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
+            
+            /* CAMBIO: Texto más pequeño en celular */
+            .hero-subtitle { 
+                font-size: 1.1rem; /* Mucho más pequeño para que quepa bien */
+                margin-top: 15px;
+            }
+
             .card { width: 100%; margin-bottom: 30px; }
             .logo-container { flex-direction: column; gap: 5px; }
         }
@@ -271,16 +291,7 @@
             LOS PELUCHITOS <br>
             <span>KUROMI</span> <br>
             
-            <div style="
-                font-family: 'Montserrat', sans-serif; 
-                font-size: 1.8rem; 
-                color: #fff; 
-                /* Aquí está la magia: la misma sombra doble del título principal */
-                text-shadow: 3px 3px 0px rgba(157, 0, 255, 0.4), -2px -2px 0px rgba(255, 0, 204, 0.4);
-                margin-top: 20px; 
-                letter-spacing: 1px; 
-                font-weight: 900; 
-                text-transform: uppercase;">
+            <div class="hero-subtitle">
                 ¡Llegan ahora hasta la puerta de tu casa! 🇸🇻
             </div>
         </h1>
@@ -368,5 +379,3 @@
 
 </body>
 </html>
-
-

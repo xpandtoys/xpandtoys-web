@@ -26,7 +26,6 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            /* CAMBIO: Fondo negro puro para evitar el gris al hacer scroll */
             background-color: #000000;
             color: var(--text-light);
             overflow-x: hidden;
@@ -35,7 +34,6 @@
         /* Fondo Animado */
         .bg-animation {
             position: fixed;
-            /* CAMBIO: Fondo más alto (120vh) y centrado (-10vh) para cubrir el rebote del scroll */
             top: -10vh; 
             left: 0; 
             width: 100%; 
@@ -93,6 +91,10 @@
             text-transform: uppercase;
             line-height: 1.1; 
             margin-bottom: 20px;
+            
+            /* CAMBIO PARA PC: Bajamos el texto 60px para separarlo del header */
+            padding-top: 60px; 
+            
             position: relative;
             color: #fff;
             text-shadow: 
@@ -266,7 +268,7 @@
                 /* 1. RESTAURAMOS EL TAMAÑO GRANDE */
                 font-size: 2.5rem; 
                 
-                /* 2. AGREGAMOS ESPACIO ARRIBA AJUSTADO A 40PX */
+                /* 2. ESPACIO ARRIBA AJUSTADO A 40PX PARA MÓVIL (Esto "pisa" el valor de PC) */
                 padding-top: 40px;
                 
                 line-height: 1.1;
